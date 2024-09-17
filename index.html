@@ -1,92 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-    <style>
-        body{
-            margin:10%;
-        }
-        div{
-            border: solid 2px rgb(0, 0, 0);
-            display: grid;
-            margin:auto;
-            border-radius: 5px;
-            padding: 3px;
-            background: rgba(0, 0, 0, 0.89);
-        }
-        td:hover{
-        				background:rgb(199, 199, 199);
-        				transition:0.1s;
-        }
-       
-        tr{
-           background: rgb(255, 255, 255);
-           text-align: center;
-            border: solid 5px rgb(0, 0, 0);
-            font-size: 2rem;
-        }
-        input{
-            height: 50px;
-            font-size: 2.5rem;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            margin: 5px;
-            color: white;
-            text-align: right;
-
-        }
-       .droite{
-        background: rgb(21, 161, 255);
-       }
-       .ac{
-        background: rgba(255, 2, 2, 0.868);
-       }
-    </style>
- </head>
-<body>
-    <h1>Calculatrice</h1>
-    <div class="Contener">
-        <input type="button" id="buton" disabled>
-        <table>
-            <tr>
-                <td onclick="buton.value*=buton.value">x²</td>
-                <td onclick="buton.value+='('">(</td>
-                <td onclick="buton.value+=')'">)</td>
-                <td class="ac" onclick="buton.value=''">DEL</td>
-            </tr>
-            <tr>
-                <td onclick="buton.value+=7">7</td>
-                <td onclick="buton.value+=8">8</td>
-                <td onclick="buton.value+=9">9</td>
-                <td class="droite" onclick="buton.value+='+'">+</td>
-
-            </tr>
-            <tr>
-                <td id="six" onclick="buton.value+=6">6</td>
-                <td onclick="buton.value+=5">5</td>
-                <td name="qtre" onclick="buton.value+=4">4</td>
-                <td class="droite" onclick="buton.value+='*'">x</td>
-            </tr>
-            <tr>
-                <td onclick="buton.value+=3">3</td>
-                <td onclick="buton.value+=2">2</td>
-                <td onclick="buton.value+=1">1</td>
-                <td class="droite" onclick="buton.value+='-'">-</td>
-            </tr>
-            <tr>
-                <td onclick="buton.value+='.'">.</td>
-                <td onclick="buton.value+=0">0</td>
-                <td onclick="buton.value/=100">%</td>
-                <td class="droite" onclick="buton.value+='/'">/</td>
-            </tr>
-            <tr>              
-                <td class="ac" onclick="buton.value=''" colspan="2">AC</td>
-                <td colspan="2" onclick="buton.value=eval(buton.value)">=</td>
-            </tr>
-        </table>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>Calculatrice</h1>
+      <p>&copy; moussa samaké || 2024</p>
+      <div id="calc_body">
+        <input type="text" disabled id="affiche" />
+        <div class="buttons">
+          <div class="row">
+            <button onclick="racine()">√</button>
+            <button onclick="carre('X²')">X²</button>
+            <button onclick="effacer()" class="ac">AC</button>
+            <button onclick="supprimer()" class="del">DEL</button>
+          </div>
+          <div class="row">
+            <button onclick="ajoutValeur(7)">7</button>
+            <button onclick="ajoutValeur(8)">8</button>
+            <button onclick="ajoutValeur(9)">9</button>
+            <button onclick="ajoutValeur('+')">+</button>
+          </div>
+          <div class="row">
+            <button onclick="ajoutValeur(6)">6</button>
+            <button onclick="ajoutValeur(5)">5</button>
+            <button onclick="ajoutValeur(4)">4</button>
+            <button onclick="ajoutValeur('-')">-</button>
+          </div>
+          <div class="row">
+            <button onclick="ajoutValeur(1)">1</button>
+            <button onclick="ajoutValeur(2)">2</button>
+            <button onclick="ajoutValeur(3)">3</button>
+            <button onclick="ajoutValeur('*')">x</button>
+          </div>
+          <div class="row">
+            <button onclick="ajoutValeur(0)">0</button>
+            <button onclick="ajoutValeur('.')">.</button>
+            <button onclick="calcul()" class="egual">=</button>
+            <button onclick="ajoutValeur('/')">/</button>
+          </div>
+        </div>
+      </div>
     </div>
-    
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
